@@ -1,0 +1,10 @@
+{
+  "name": "Projeto Vida — RPG pessoal",
+  "short_name": "Projeto Vida",
+  "description": "RPG pessoal de missões, atributos, inventário e evolução.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#10151d",
+  "theme_color": "#151b25",
+  "lang": "pt-BR"
+}

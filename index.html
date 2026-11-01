@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#151b25">
+<meta name="description" content="Projeto Vida RPG — acompanhe missões, atributos, inventário e evolução pessoal.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Projeto Vida — RPG pessoal</title>
+<style>
+:root{--bg:#10151d;--panel:#19222e;--panel2:#202c3a;--ink:#f2f0e8;--muted:#aab6c4;--gold:#e5bd70;--green:#91c7a0;--blue:#8cb9df;--red:#df8e83;--line:#354454}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#253342 0,#10151d 56%);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);background:#273747;color:var(--ink);padding:10px 13px;border-radius:12px}button:hover{filter:brightness(1.12)}button.primary{background:var(--gold);color:#1c2027;border-color:var(--gold);font-weight:750}button.ghost{background:transparent}button.small{padding:6px 9px;font-size:13px}.wrap{max-width:1050px;margin:auto;padding:16px 14px 40px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.brand{display:flex;align-items:center;gap:10px}.sigil{width:43px;height:43px;border-radius:14px;background:linear-gradient(145deg,#e5bd70,#8e6a35);display:grid;place-items:center;color:#17202a;font-size:22px;font-weight:900}.brand h1{font-size:19px;margin:0;letter-spacing:.04em}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.tag{font-size:11px;border:1px solid #566475;color:var(--gold);padding:5px 8px;border-radius:99px;white-space:nowrap}.tabs{display:flex;gap:7px;overflow-x:auto;padding:4px 0 12px}.tabs button{white-space:nowrap;flex:0 0 auto}.tabs button.active{background:var(--gold);color:#20242a;border-color:var(--gold);font-weight:800}.view{display:none}.view.active{display:block}.grid{display:grid;gap:12px}.two{grid-template-columns:1.1fr .9fr}.three{grid-template-columns:repeat(3,1fr)}.card{background:linear-gradient(160deg,rgba(31,44,58,.96),rgba(23,32,43,.97));border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 8px 25px #0002}.card h2,.card h3{margin:0 0 10px}.card h2{font-size:17px}.card h3{font-size:14px;color:var(--gold)}.muted{color:var(--muted)}.tiny{font-size:12px}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.avatar-area{display:flex;align-items:center;gap:15px}.avatar{width:104px;height:124px;flex:0 0 auto;border-radius:18px;background:linear-gradient(160deg,#33495c,#17212d);display:grid;place-items:center;border:1px solid #526577;overflow:hidden}.avatar svg{width:95px;height:116px}.level{font-size:25px;font-weight:900}.xpbar,.bar{height:9px;background:#0e141b;border:1px solid #344454;border-radius:99px;overflow:hidden}.xpbar span,.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#b78d4d,#f1d38a);border-radius:99px;transition:width .25s}.xptext{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin:6px 0 0}.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{padding:10px;background:#11192388;border:1px solid #2e3e4d;border-radius:12px}.stat .row{font-size:12px}.stat strong{font-size:17px}.stat .bar{height:6px;margin-top:7px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:5px 0 12px}.section-head h2{margin:0;font-size:20px}.mission{padding:12px;border-radius:13px;background:#11192399;border:1px solid #304152;margin:9px 0}.mission.done{opacity:.65}.mission.done .mission-title{text-decoration:line-through}.mission-title{font-weight:750}.pill{display:inline-block;border-radius:99px;padding:3px 7px;font-size:11px;background:#314557;color:#d6e4ef;margin:5px 4px 0 0}.pill.gold{background:#4b3c25;color:#f4d99e}.mission p{margin:6px 0;color:var(--muted);font-size:13px}.mission-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}.mission-detail{margin-top:12px;padding:12px;border:1px solid #536577;background:#0f1721;border-radius:12px}.mission-detail label{display:block;font-size:13px;color:var(--muted);margin:9px 0 5px}.mission-detail textarea,.mission-detail input{width:100%;min-height:76px}.mission-detail .field{margin-bottom:8px}.mission-detail .field input{min-height:0}.mission-detail h4{margin:0 0 8px;color:var(--gold)}.mapbox{border-radius:15px;overflow:hidden;border:1px solid #465968;background:#b9c6a0}.mapbox svg{display:block;width:100%;height:auto}.mapnote{padding:10px;background:#17222d;border-radius:10px;margin-top:10px;color:var(--muted);font-size:12px}.item{display:flex;gap:12px;align-items:center;padding:12px;background:#11192388;border:1px solid #304152;border-radius:13px;margin:8px 0}.itemicon{width:45px;height:45px;border-radius:12px;background:#354556;display:grid;place-items:center;font-size:24px;flex:0 0 auto}.item strong{display:block}.item .muted{font-size:12px}.empty{padding:25px;text-align:center;color:var(--muted);border:1px dashed #526272;border-radius:13px}.formrow{display:flex;gap:8px;flex-wrap:wrap}.formrow input,.formrow select,.formrow textarea,input,textarea,select{min-width:0;background:#111923;color:var(--ink);border:1px solid #3a4c5c;border-radius:10px;padding:10px}.formrow input{flex:1}.notice{padding:12px;border-left:3px solid var(--gold);background:#493d281f;border-radius:8px;color:#d8d6cb;font-size:13px}.footer{margin-top:18px;color:#8e9ba8;font-size:11px;text-align:center}.hidden{display:none!important}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}.attribute{padding:12px;background:#11192388;border:1px solid #304152;border-radius:13px}.attribute p{font-size:12px;color:var(--muted);margin:6px 0}.attribute .row{margin-bottom:5px}.attribute input{width:70px;padding:6px}.achievement{border:1px solid #6c5a37;background:#3c3322;border-radius:12px;padding:11px;margin:7px 0}.achievement b{color:var(--gold)}@media(max-width:700px){.two,.three{grid-template-columns:1fr}.top{align-items:flex-start}.tag{display:none}.avatar{width:88px;height:110px}.statgrid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.wrap{padding:12px 10px 30px}.card{padding:13px}} 
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="sigil">✦</div><div><h1>PROJETO VIDA</h1><p>RPG pessoal · Campanha de adaptação</p></div></div>
+  <span class="tag">BETA 0.1 · BEZERROS/PE</span>
+</header>
+<nav class="tabs" aria-label="Navegação">
+<button class="active" data-tab="inicio">🏕️ Personagem</button>
+<button data-tab="missoes">📜 Missões</button>
+<button data-tab="mapa">🗺️ Mapa</button>
+<button data-tab="atributos">📊 Atributos</button>
+<button data-tab="bolsa">🎒 Bolsa</button>
+<button data-tab="historico">📖 Diário & backup</button>
+</nav>
+
+<section class="view active" id="inicio">
+<div class="grid two">
+ <div class="card">
+  <div class="avatar-area">
+   <div class="avatar" id="avatarBox">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Avatar ilustrado de aventureiro">
+     <path d="M18 120 Q22 90 36 83 L35 65 L65 65 L64 83 Q80 91 83 120Z" fill="#617b8a" stroke="#d2b77a" stroke-width="2"/>
+     <path d="M35 66 Q50 78 65 66 L63 86 L50 99 L37 86Z" fill="#263746"/>
+     <path d="M32 40 Q32 14 50 13 Q69 14 69 40 L65 64 Q50 79 35 64Z" fill="#b77f5b" stroke="#e2bd83" stroke-width="1.5"/>
+     <path d="M29 38 Q24 11 49 7 Q76 7 72 38 L65 28 L36 29Z" fill="#39434a" stroke="#d5b574" stroke-width="2"/>
+     <path d="M37 43 L45 43 M55 43 L63 43" stroke="#20272d" stroke-width="3" stroke-linecap="round"/>
+     <path d="M46 55 Q50 58 54 55" fill="none" stroke="#593d32" stroke-width="2"/>
+     <path d="M37 62 Q50 72 63 62 L61 69 Q50 78 39 69Z" fill="#50372e"/>
+     <path d="M24 92 L38 86 L50 100 L62 86 L77 92" fill="none" stroke="#e0c27d" stroke-width="3"/>
+     <path d="M22 120 L25 103 M78 120 L75 103" stroke="#263746" stroke-width="5"/>
+    </svg>
+   </div>
+   <div><div class="muted tiny">AVENTUREIRO · CLASSE EM DESCOBERTA</div><div class="level" id="levelText">Nível 1</div><div class="muted" id="titleText">Novato do Agreste</div><div style="margin-top:12px;width:min(250px,55vw)"><div class="xpbar"><span id="xpbar"></span></div><div class="xptext"><span id="xpText">0 / 100 XP</span><span id="xpPct">0%</span></div></div></div>
+  </div>
+  <div class="notice" style="margin-top:15px">Sua campanha começa em <b>Bezerros, Pernambuco</b>. Este é um sistema de progresso pessoal — não uma avaliação do seu valor como pessoa.</div>
+ </div>
+ <div class="card"><h2>🎯 Missão principal</h2><h3 id="mainMissionTitle">Construir a primeira base</h3><p class="muted" id="mainMissionDesc">Descobrir seu ponto de partida e montar um ritmo sustentável de evolução.</p><div class="row" style="margin-top:15px"><span class="pill gold">Campanha · 30 dias</span><span class="pill" id="dayPill">Dia 1 de 30</span></div><div class="bar" style="margin-top:12px"><span id="campaignbar"></span></div><p class="tiny muted" id="campaignText">O progresso da campanha começa quando você registra seu primeiro dia.</p></div>
+</div>
+<div class="grid three" style="margin-top:12px">
+ <div class="card"><h3>⚔️ Missões ativas</h3><div class="level" id="activeCount">3</div><p class="muted tiny">Missões no ciclo atual</p></div>
+ <div class="card"><h3>🏅 Conquistas</h3><div class="level" id="achievementCount">0</div><p class="muted tiny">Marcos registrados</p></div>
+ <div class="card"><h3>🎒 Itens na bolsa</h3><div class="level" id="itemCount">0</div><p class="muted tiny">Itens e recompensas obtidos</p></div>
+</div>
+<div class="card" style="margin-top:12px"><div class="section-head"><h2>📌 Próximas missões</h2><button class="small" onclick="switchTab('missoes')">Ver todas →</button></div><div id="homeMissions"></div></div>
+</section>
+
+<section class="view" id="missoes">
+<div class="section-head"><h2>📜 Quadro de missões</h2><span class="pill gold">Ciclo inicial · 3 dias</span></div>
+<div class="notice">Registre o que aconteceu de verdade. Se algo não coube no dia, marque como “não concluída” e anote o motivo. A campanha será adaptada — sem punições artificiais.</div>
+<div id="missionList"></div>
+<div class="card" style="margin-top:12px"><h2>➕ Criar missão personalizada</h2><div class="formrow"><input id="newMissionTitle" placeholder="Nome da missão"><select id="newMissionStat"><option value="INT">INT · Inteligência</option><option value="FOR">FOR · Força</option><option value="VIT">VIT · Vitalidade</option><option value="SAB">SAB · Sabedoria</option><option value="AGI">AGI · Agilidade</option><option value="DIS">DIS · Disciplina</option><option value="SOC">SOC · Social</option><option value="IND">IND · Independência</option></select><button class="primary" onclick="addMission()">Adicionar</button></div></div>
+</section>
+
+<section class="view" id="mapa">
+<div class="section-head"><h2>🗺️ Mapa de exploração</h2><span class="pill">Mapa esquemático</span></div>
+<div class="card">
+ <p class="muted">Um mapa de fantasia inspirado em Bezerros e no Agreste pernambucano. As regiões e trilhas abaixo são elementos de jogo; <b>não representam ruas, distâncias nem rotas reais</b>.</p>
+ <div class="mapbox">
+ <svg viewBox="0 0 720 500" role="img" aria-label="Mapa ilustrado de fantasia inspirado em Bezerros">
+  <defs><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4d5a6"/><stop offset="1" stop-color="#9cae88"/></linearGradient><pattern id="grain" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="4" cy="8" r="1" fill="#718667" opacity=".45"/><path d="M15 24l5 -4" stroke="#718667" opacity=".4"/></pattern></defs>
+  <rect width="720" height="500" fill="url(#land)"/><rect width="720" height="500" fill="url(#grain)"/>
+  <path d="M-20 120 Q100 80 160 140 T320 120 T500 155 T750 105" fill="none" stroke="#d7e2c4" stroke-width="17" opacity=".8"/>
+  <path d="M-20 120 Q100 80 160 140 T320 120 T500 155 T750 105" fill="none" stroke="#8fa58d" stroke-width="2" stroke-dasharray="6 8"/>
+  <path d="M50 400 Q170 340 210 265 T370 235 T530 320 T710 280" fill="none" stroke="#e7d2a0" stroke-width="13" stroke-linecap="round"/>
+  <path d="M50 400 Q170 340 210 265 T370 235 T530 320 T710 280" fill="none" stroke="#9c8154" stroke-width="2" stroke-dasharray="4 7"/>
+  <!-- hills -->
+  <g fill="#7f9b78" stroke="#617c68" stroke-width="2"><path d="M420 70l35 -55 36 55z"/><path d="M457 88l45 -78 50 78z"/><path d="M515 104l38 -58 42 58z"/><path d="M70 190l28 -44 32 44z"/><path d="M100 202l37 -56 38 56z"/><path d="M590 395l28 -47 35 47z"/><path d="M622 405l38 -58 40 58z"/></g>
+  <g fill="#e9dfb7" stroke="#776a4b" stroke-width="2"><path d="M180 250l0 -22 15 -14 15 14 0 22z"/><path d="M211 250l0 -16 12 -12 12 12 0 16z"/><path d="M176 251h55v8h-55z"/></g>
+  <!-- region markers -->
+  <g font-family="system-ui" text-anchor="middle">
+   <circle cx="205" cy="280" r="22" fill="#283b4c" stroke="#f2d58c" stroke-width="3"/><text x="205" y="286" font-size="19" fill="#f2d58c">⌂</text><text x="205" y="316" font-size="15" font-weight="800" fill="#24333b">Centro de Bezerros</text><text x="205" y="333" font-size="11" fill="#35443d">Base inicial</text>
+   <circle cx="492" cy="94" r="22" fill="#283b4c" stroke="#f2d58c" stroke-width="3"/><text x="492" y="100" font-size="18" fill="#f2d58c">♧</text><text x="492" y="128" font-size="15" font-weight="800" fill="#24333b">Serra das Descobertas</text><text x="492" y="145" font-size="11" fill="#35443d">Exploração · bloqueada</text>
+   <circle cx="545" cy="317" r="22" fill="#283b4c" stroke="#f2d58c" stroke-width="3"/><text x="545" y="323" font-size="18" fill="#f2d58c">⚒</text><text x="545" y="350" font-size="15" font-weight="800" fill="#24333b">Oficina do Agreste</text><text x="545" y="367" font-size="11" fill="#35443d">Ofício e criação</text>
+   <circle cx="111" cy="408" r="22" fill="#283b4c" stroke="#f2d58c" stroke-width="3"/><text x="111" y="414" font-size="18" fill="#f2d58c">✦</text><text x="111" y="443" font-size="15" font-weight="800" fill="#24333b">Vale da Vitalidade</text><text x="111" y="460" font-size="11" fill="#35443d">Corpo e energia</text>
+   <circle cx="360" cy="177" r="18" fill="#8d6039" stroke="#f8e4ac" stroke-width="3"/><text x="360" y="183" font-size="16" fill="#fff0c8">?</text><text x="360" y="207" font-size="13" font-weight="800" fill="#24333b">Marco desconhecido</text>
+  </g>
+  <g transform="translate(650 25)" fill="#263943" font-family="system-ui" text-anchor="middle"><path d="M0 35L12 0L24 35L12 27Z" fill="#263943"/><text x="12" y="49" font-size="12">N</text></g>
+  <text x="20" y="28" font-family="system-ui" font-size="14" font-weight="800" fill="#35443d">TERRAS DO AGRESTE</text>
+  <text x="20" y="46" font-family="system-ui" font-size="11" fill="#35443d">Mapa de campanha · não geográfico</text>
+ </svg></div>
+ <div class="mapnote">🔒 Regiões podem ser desbloqueadas por conquistas. O mapa é ilustrativo e inspirado na identidade regional; não é uma representação cartográfica fiel de Bezerros.</div>
+</div>
+<div class="grid two" style="margin-top:12px"><div class="card"><h2>📍 Região atual</h2><h3>Centro de Bezerros — Base inicial</h3><p class="muted">Aqui você registra seu ponto de partida, aprende as regras e prepara seu equipamento para a campanha.</p><span class="pill gold">Desbloqueada</span></div><div class="card"><h2>🧭 Próxima região</h2><h3>Vale da Vitalidade</h3><p class="muted">Desbloqueia ao concluir a avaliação inicial e registrar seu primeiro ciclo de atividades.</p><span class="pill">Em preparação</span></div></div>
+</section>
+
+<section class="view" id="atributos">
+<div class="section-head"><h2>📊 Atributos do personagem</h2><span class="pill gold">Valores iniciais provisórios</span></div>
+<div class="notice">Os números abaixo são marcadores de jogo provisórios, não uma avaliação objetiva da sua capacidade. Vamos calibrá-los durante os primeiros dias usando critérios observáveis. XP não aumenta automaticamente o nível de um atributo.</div>
+<div class="two-col" id="attributeList" style="margin-top:12px"></div>
+</section>
+
+<section class="view" id="bolsa">
+<div class="section-head"><h2>🎒 Bolsa de itens</h2><button class="primary" onclick="showAddItem()">＋ Adicionar item</button></div>
+<p class="muted">Guarde recompensas, ferramentas, títulos colecionáveis e itens simbólicos conquistados. Itens de jogo não exigem compras reais.</p>
+<div id="inventoryList"></div>
+<div id="addItemPanel" class="card hidden"><h2>Novo item</h2><div class="formrow"><input id="itemName" placeholder="Nome do item"><input id="itemIcon" placeholder="Ícone (ex.: 🧭)" maxlength="4" style="max-width:100px"><select id="itemType"><option>Recompensa</option><option>Ferramenta</option><option>Relíquia</option><option>Título</option><option>Consumível simbólico</option></select></div><textarea id="itemDesc" placeholder="Como foi conquistado? (opcional)" style="width:100%;margin-top:8px"></textarea><div class="formrow" style="margin-top:8px"><button class="primary" onclick="addItem()">Guardar na bolsa</button><button onclick="document.getElementById('addItemPanel').classList.add('hidden')">Cancelar</button></div></div>
+</section>
+
+<section class="view" id="historico">
+<div class="section-head"><h2>📖 Diário de campanha</h2></div>
+<div class="card"><h2>📝 Registrar nota</h2><textarea id="journalText" placeholder="Como foi o dia? O que funcionou, o que dificultou e como estava sua energia?" style="width:100%;min-height:100px"></textarea><div class="formrow" style="margin-top:8px"><button class="primary" onclick="saveJournal()">Salvar registro</button><button onclick="exportBackup()">⬇ Exportar backup</button><button onclick="document.getElementById('importFile').click()">⬆ Importar backup</button><input id="importFile" type="file" accept=".json,application/json" class="hidden" onchange="importBackup(event)"></div></div>
+<div class="card" style="margin-top:12px"><h2>🗂️ Histórico</h2><div id="journalList"></div></div>
+<div class="card" style="margin-top:12px"><h2>🔁 Como sincronizar com o ChatGPT</h2><ol class="muted"><li>Toque em “Exportar backup” ao fim do ciclo de 2–3 dias.</li><li>Envie o arquivo JSON nesta conversa.</li><li>Eu analiso os registros e preparo as missões/estado atualizado para importar.</li><li>Importe o arquivo atualizado para continuar. Guarde uma cópia do backup anterior.</li></ol><p class="tiny muted">O backup contém seus dados de campanha. Evite incluir informações sensíveis desnecessárias.</p></div>
+</section>
+
+<div class="footer">PROJETO VIDA · Protótipo beta local · O progresso fica salvo neste navegador/dispositivo até você exportar um backup.</div>
+</div>
+<script>
+const DEFAULT = {
+ version:1, createdAt:new Date().toISOString(), startDate:new Date().toISOString().slice(0,10), day:1, xp:0, level:1,
+ stats:[
+  {id:"FOR",name:"Força",value:1,desc:"Força muscular e desempenho físico."},
+  {id:"VIT",name:"Vitalidade",value:1,desc:"Energia, condicionamento e recuperação."},
+  {id:"INT",name:"Inteligência",value:1,desc:"Conhecimento, raciocínio e aprendizado."},
+  {id:"SAB",name:"Sabedoria",value:1,desc:"Reflexão e qualidade das decisões."},
+  {id:"AGI",name:"Agilidade",value:1,desc:"Coordenação, mobilidade e controle corporal."},
+  {id:"DIS",name:"Disciplina",value:1,desc:"Consistência e capacidade de manter planos."},
+  {id:"SOC",name:"Social",value:1,desc:"Comunicação e relações interpessoais."},
+  {id:"IND",name:"Independência",value:1,desc:"Autonomia, finanças e competências profissionais."}
+ ],
+ missions:[
+  {id:"m1",title:"Reconhecimento do personagem",desc:"Registre como está sua rotina, energia e disponibilidade. Não precisa mudar tudo hoje.",stat:"SAB",xp:10,status:"active",day:1,kind:"Fundação"},
+  {id:"m2",title:"Missão do corpo: ponto de partida",desc:"Faça uma observação segura do seu nível atual. Escolha uma atividade leve e familiar; não teste seus limites nem treine até a exaustão.",stat:"VIT",xp:10,status:"active",day:1,kind:"Corpo"},
+  {id:"m3",title:"Aprender algo por 15 minutos",desc:"Escolha um assunto que desperte curiosidade, estude por 15 minutos e anote uma ideia que aprendeu.",stat:"INT",xp:10,status:"active",day:1,kind:"Conhecimento"},
+  {id:"m4",title:"Mapear uma habilidade profissional",desc:"Escolha uma habilidade que gostaria de desenvolver e escreva qual seria um primeiro passo acessível.",stat:"IND",xp:10,status:"active",day:2,kind:"Ofício"},
+  {id:"m5",title:"Pequena vitória de organização",desc:"Organize um espaço ou resolva uma tarefa prática que estava adiando. Mantenha o objetivo pequeno.",stat:"DIS",xp:10,status:"active",day:2,kind:"Disciplina"},
+  {id:"m6",title:"Diário de exploração",desc:"Registre algo que descobriu, uma dificuldade e uma coisa que gostaria de testar no próximo ciclo.",stat:"SAB",xp:10,status:"active",day:3,kind:"Exploração"}
+ ],
+ items:[], journal:[], achievements:[], campaignDays:0
+};
+let state;
+function load(){try{const raw=localStorage.getItem("projetoVidaSave");if(raw){state=JSON.parse(raw);if(!state.stats||!state.missions)state=structuredClone(DEFAULT);}else state=structuredClone(DEFAULT);}catch(e){state=structuredClone(DEFAULT);}render();}
+function save(){localStorage.setItem("projetoVidaSave",JSON.stringify(state));}
+function xpNeed(level){return 100*level;}
+function gainXP(n,mission){state.xp+=n;while(state.xp>=xpNeed(state.level)){state.xp-=xpNeed(state.level);state.level++;state.achievements.push({title:"Nível "+state.level+" alcançado",desc:"Você acumulou experiência e avançou na campanha.",date:new Date().toISOString()});}if(mission){state.achievements.push({title:"Missão concluída",desc:mission.title,date:new Date().toISOString()});}}
+function render(){
+ document.getElementById("levelText").textContent="Nível "+state.level;
+ document.getElementById("titleText").textContent=state.level<3?"Novato do Agreste":state.level<5?"Explorador em formação":"Aventureiro experiente";
+ document.getElementById("xpText").textContent=state.xp+" / "+xpNeed(state.level)+" XP";
+ document.getElementById("xpPct").textContent=Math.round(state.xp/xpNeed(state.level)*100)+"%";
+ document.getElementById("xpbar").style.width=Math.min(100,state.xp/xpNeed(state.level)*100)+"%";
+ const days=Math.min(30,Math.max(1,state.campaignDays||1));document.getElementById("dayPill").textContent="Dia "+days+" de 30";document.getElementById("campaignbar").style.width=(days/30*100)+"%";document.getElementById("campaignText").textContent=state.campaignDays?days+" dia(s) registrado(s) na campanha.":"O progresso da campanha começa quando você registra seu primeiro dia.";
+ document.getElementById("activeCount").textContent=state.missions.filter(m=>m.status==="active").length;
+ document.getElementById("achievementCount").textContent=state.achievements.length;
+ document.getElementById("itemCount").textContent=state.items.length;
+ renderMissions();renderStats();renderItems();renderJournal();
+}
+function missionHTML(m){let done=m.status==="done", skipped=m.status==="skipped", open=m.open===true;return `<div class="mission ${done?'done':''}"><div class="row"><div class="mission-title">${esc(m.title)}</div><span class="pill ${done?'gold':''}">${done?'Concluída':skipped?'Não concluída':'Ativa'}</span></div><p>${esc(m.desc)}</p><span class="pill">${esc(m.kind||'Missão')}</span><span class="pill">${esc(m.stat)} · +${m.xp} XP</span><div class="mission-actions"><span class="tiny muted">Dia ${m.day||1}</span><div>${!done&&!skipped?`<button class="small primary" onclick="toggleMission('${m.id}')">${open?'Fechar':'Abrir missão'}</button> <button class="small ghost" onclick="skipMission('${m.id}')">Não concluída</button>`:`<button class="small" onclick="reopenMission('${m.id}')">Reabrir</button>`}</div></div>${open&&!done&&!skipped?missionDetailHTML(m):m.record?`<div class="mission-detail"><h4>Registro salvo</h4><p style="white-space:pre-wrap;color:var(--ink)">${esc(m.record)}</p></div>`:''}</div>`}
+function missionDetailHTML(m){
+ let fields='';
+ if(m.id==='m1') fields=`<div class="field"><label>Como é sua rotina atualmente?</label><textarea id="rec-${m.id}-routine" placeholder="Ex.: trabalho, casa, horários..."></textarea></div><div class="field"><label>Como costuma estar sua energia durante e depois do trabalho?</label><textarea id="rec-${m.id}-energy" placeholder="Conte como você se sente, sem precisar dar nota perfeita."></textarea></div><div class="field"><label>Quanto tempo livre costuma ter?</label><input id="rec-${m.id}-time" placeholder="Ex.: noites livres, cerca de 2 horas"></div><div class="field"><label>Quais áreas quer desenvolver primeiro?</label><textarea id="rec-${m.id}-goals" placeholder="Ex.: físico, inteligência, finanças, disciplina..."></textarea></div>`;
+ else if(m.id==='m2') fields=`<div class="field"><label>Qual atividade leve e familiar você escolheu?</label><input id="rec-${m.id}-activity" placeholder="Ex.: caminhada leve ou mobilidade confortável"></div><div class="field"><label>Como se sentiu antes, durante e depois?</label><textarea id="rec-${m.id}-feeling" placeholder="Energia, conforto e qualquer dificuldade percebida..."></textarea></div>`;
+ else if(m.id==='m3') fields=`<div class="field"><label>Qual assunto você estudou?</label><input id="rec-${m.id}-topic" placeholder="Assunto ou habilidade"></div><div class="field"><label>O que aprendeu nesses 15 minutos?</label><textarea id="rec-${m.id}-learning" placeholder="Escreva uma ideia que ficou na cabeça."></textarea></div>`;
+ else fields=`<div class="field"><label>Registre o que você fez e o resultado</label><textarea id="rec-${m.id}-generic" placeholder="O que fez? O que funcionou? Houve alguma dificuldade?"></textarea></div>`;
+ return `<div class="mission-detail"><h4>🔎 Detalhes e registro da missão</h4><p>Preencha o registro abaixo. Ele fica salvo neste dispositivo e será incluído no backup que você me enviar.</p>${fields}<div class="formrow"><button class="small" onclick="saveMissionRecord('${m.id}',false)">Salvar registro</button><button class="small primary" onclick="saveMissionRecord('${m.id}',true)">Registrar e concluir · +${m.xp} XP</button></div></div>`;
+}
+function toggleMission(id){const m=state.missions.find(x=>x.id===id);if(!m)return;m.open=!m.open;save();render();}
+function saveMissionRecord(id,finish){const m=state.missions.find(x=>x.id===id);if(!m)return;let vals=[];const ids=id==='m1'?['routine','energy','time','goals']:id==='m2'?['activity','feeling']:id==='m3'?['topic','learning']:['generic'];const labels={routine:'Rotina',energy:'Energia',time:'Tempo livre',goals:'Prioridades',activity:'Atividade',feeling:'Como me senti',topic:'Assunto estudado',learning:'O que aprendi',generic:'Registro'};for(const key of ids){const el=document.getElementById(`rec-${id}-${key}`);const value=el?el.value.trim():'';if(value)vals.push(labels[key]+': '+value);}if(!vals.length){alert('Escreva pelo menos uma resposta antes de salvar.');return;}m.record=vals.join('\n\n');m.open=false;if(finish){m.status='done';gainXP(m.xp,m);state.campaignDays=Math.min(30,(state.campaignDays||0)+1);}save();render();alert(finish?'Registro salvo e missão concluída! XP recebido.':'Registro salvo. Você pode voltar depois para concluir a missão.');}
+function renderMissions(){let html=state.missions.map(missionHTML).join("")||'<div class="empty">Nenhuma missão ativa.</div>';document.getElementById("missionList").innerHTML=html;document.getElementById("homeMissions").innerHTML=state.missions.filter(m=>m.status==="active").slice(0,3).map(missionHTML).join("")||'<div class="empty">Tudo em dia. Peça o próximo ciclo após revisar seu progresso.</div>';}
+function completeMission(id){const m=state.missions.find(x=>x.id===id);if(!m||m.status==="done")return;m.status="done";gainXP(m.xp,m);state.campaignDays=Math.min(30,(state.campaignDays||0)+1);save();render();}
+function skipMission(id){const m=state.missions.find(x=>x.id===id);if(!m)return;m.status="skipped";state.journal.unshift({date:new Date().toISOString(),text:"Missão não concluída: "+m.title+". Motivo ainda não registrado."});save();render();}
+function reopenMission(id){const m=state.missions.find(x=>x.id===id);if(!m)return;if(m.status==="done"){alert("Para evitar duplicar XP, esta missão concluída não pode ser reaberta nesta versão. Registre a correção no diário e no próximo backup.");return;}m.status="active";save();render();}
+function addMission(){let title=document.getElementById("newMissionTitle").value.trim(),stat=document.getElementById("newMissionStat").value;if(!title){alert("Dê um nome à missão.");return;}state.missions.push({id:"u"+Date.now(),title,desc:"Missão criada por você. Edite o objetivo no diário se precisar.",stat,xp:10,status:"active",day:state.campaignDays+1,kind:"Personalizada"});document.getElementById("newMissionTitle").value="";save();render();}
+function renderStats(){document.getElementById("attributeList").innerHTML=state.stats.map(s=>`<div class="attribute"><div class="row"><div><strong>${s.id} · ${esc(s.name)}</strong><div class="tiny muted">Nível ${s.value} / 10</div></div><span class="pill">${s.value<=2?'Inicial':s.value<=5?'Em desenvolvimento':'Avançado'}</span></div><p>${esc(s.desc)}</p><div class="bar"><span style="width:${s.value*10}%"></span></div></div>`).join("");}
+function renderItems(){document.getElementById("inventoryList").innerHTML=state.items.length?state.items.map((it,i)=>`<div class="item"><div class="itemicon">${esc(it.icon||'🎁')}</div><div style="flex:1"><strong>${esc(it.name)}</strong><div class="muted">${esc(it.type||'Item')} · ${esc(it.desc||'Sem descrição')}</div></div><button class="small" onclick="removeItem(${i})">Remover</button></div>`).join(""):'<div class="empty">Sua bolsa está vazia. Complete missões e registre recompensas para começar sua coleção.</div>';}
+function showAddItem(){document.getElementById("addItemPanel").classList.remove("hidden");}
+function addItem(){let name=document.getElementById("itemName").value.trim();if(!name){alert("Dê um nome ao item.");return;}state.items.push({name,icon:document.getElementById("itemIcon").value.trim()||"🎁",type:document.getElementById("itemType").value,desc:document.getElementById("itemDesc").value.trim(),date:new Date().toISOString()});["itemName","itemIcon","itemDesc"].forEach(id=>document.getElementById(id).value="");document.getElementById("addItemPanel").classList.add("hidden");save();render();}
+function removeItem(i){if(confirm("Remover este item da bolsa?")){state.items.splice(i,1);save();render();}}
+function saveJournal(){let text=document.getElementById("journalText").value.trim();if(!text){alert("Escreva uma nota antes de salvar.");return;}state.journal.unshift({date:new Date().toISOString(),text});state.campaignDays=Math.min(30,(state.campaignDays||0)+1);document.getElementById("journalText").value="";save();render();}
+function renderJournal(){document.getElementById("journalList").innerHTML=state.journal.length?state.journal.map(j=>`<div class="mission"><div class="tiny muted">${new Date(j.date).toLocaleString('pt-BR')}</div><p style="color:var(--ink);white-space:pre-wrap">${esc(j.text)}</p></div>`).join(""):'<div class="empty">Ainda não há registros. Use o diário para anotar seu ciclo.</div>';}
+function exportBackup(){const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="projeto-vida-backup-"+new Date().toISOString().slice(0,10)+".json";a.click();URL.revokeObjectURL(a.href);}
+function importBackup(ev){const f=ev.target.files[0];if(!f)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);if(!data.stats||!data.missions||!Array.isArray(data.items))throw new Error("Formato incompatível");if(confirm("Importar este backup substituirá o progresso salvo neste dispositivo. Exporte o atual antes, se quiser guardá-lo. Continuar?")){state=data;save();render();alert("Backup importado com sucesso.");}}catch(e){alert("Não foi possível importar: "+e.message);}ev.target.value="";};reader.readAsText(f);}
+function switchTab(id){document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===id));document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));window.scrollTo({top:0,behavior:"smooth"});}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+load();
+</script>
+</body>
+</html>

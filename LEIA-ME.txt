@@ -1,0 +1,18 @@
+PROJETO VIDA — RPG PESSOAL (BETA 0.1)
+
+Conteúdo:
+- index.html: aplicativo web funcional.
+- manifest.webmanifest e sw.js: suporte básico a instalação/offline em hospedagem compatível.
+- backup JSON: exportação/importação do progresso pelo menu Diário & backup.
+- Cada missão agora tem botão “Abrir missão”, campos de registro e opção “Registrar e concluir”.
+
+COMO TESTAR:
+1. Extraia o ZIP.
+2. Abra index.html no navegador para testar as funções principais.
+3. Para instalar como PWA, publique os arquivos em um serviço de hospedagem HTTPS e abra o endereço no Chrome/Android; use o menu do navegador > Instalar app/Adicionar à tela inicial.
+4. O armazenamento local depende do navegador/dispositivo. Exporte backups regularmente.
+
+IMPORTANTE:
+Este pacote NÃO é um APK Android nativo. Não há ferramenta de compilação Android neste ambiente para entregar um APK assinado e pronto para instalar.
+O mapa é esquemático e inspirado na região de Bezerros/Agreste; não serve para navegação e não representa ruas ou distâncias reais.
+Os níveis de atributos começam provisoriamente em 1 e devem ser calibrados na adaptação inicial.
